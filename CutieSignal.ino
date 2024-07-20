@@ -15,10 +15,10 @@
 #include <ESPAsyncWebServer.h>      //https://github.com/me-no-dev/ESPAsyncWebServer
 #include <SPIFFS.h>
 #include <Wire.h>
-#include "SSD1306Wire.h"
-#include "pins_arduino.h"
-#include <ESP32Time.h>
-#include "esp_system.h" //ESPSystem Calls 
+#include "SSD1306Wire.h"            //Display text on OLED module SSD1306 with I2C
+#include "pins_arduino.h"          
+#include <ESP32Time.h>              //Always usefull a Time Lib
+#include "esp_system.h"             //ESPSystem Calls. Very cool must explore more.
 
 
 
@@ -428,7 +428,7 @@ void loop() {
   
   if (numSeconds == 0) {
 
-        //This just updates the OLED display every 5 seconds
+        //This just updates the OLED display every 10 seconds
         if( millis() >= time_1 + INTERVAL_T1) {    
               time_1 +=INTERVAL_T1;                       
                     showText("Cutie Signal. SSID: '" + never_gonna[current_line] + "'.  "+rtc.getTime("%A, %B %d %Y %H:%M:%S")+ " Min HEAP: "+String(esp_get_minimum_free_heap_size()));
